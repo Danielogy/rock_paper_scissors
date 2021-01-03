@@ -33,17 +33,32 @@
         let computerWins = 0;
 
         for(let i = 4; i >= playerWins && i >= computerWins; ){
-            console.log(playerWins);
-            console.log(computerWins);
+            console.log('Player Wins: ' + playerWins);
+            console.log('Computer Wins: ' + computerWins);
+
             const playerSelection = getSelection();
             const computerSelection = computerPlay();
 
-            if(playRound(playerSelection, computerSelection) == 0)
-                playerWins++
-            else if(playRound(playerSelection, computerSelection) == 1)
-                computerWins++
-            else continue;
+            let outcome = 2;
+
+            outcome = playRound(playerSelection, computerSelection);
+
+            if(outcome == 0)
+                playerWins++;
+            else if(outcome == 1)
+                computerWins++;
+            else continue; 
         }
+
+        if(playerWins == 5){
+            console.log(playerWins);
+            console.log('Congratulations! You have won!');
+        }
+        if(computerWins == 5){
+            console.log(computerWins);
+            console.log('Sorry, it looks like you have lost.');
+        }
+            
     }
 
     function playRound(playerSelection, compSelection){
@@ -65,7 +80,7 @@
         }
 
         //player selection == Paper
-        if (playerSelection == "PAPER" && compSelection == "ROCK"){
+        else if (playerSelection == "PAPER" && compSelection == "ROCK"){
             console.log('You Win! Paper beats Rock.');
             return 0;
         }
@@ -79,7 +94,7 @@
         }
 
         //player selection == Scissors
-        if (playerSelection == "SCISSORS" && compSelection == "ROCK"){
+        else if (playerSelection == "SCISSORS" && compSelection == "ROCK"){
             console.log('You Lose! Rock beats Scissors.');
             return 1;
         }
