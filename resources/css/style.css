@@ -81,14 +81,6 @@ button[id='4']{
     width: 25vw;
 }
 
-footer{
-    position: fixed;
-    left: 0;
-    bottom: 10px;
-    width: 100%;
-    text-align: center;
-}
-
 /* media queries */
 @media screen and (max-width: 730px){
     h1{
